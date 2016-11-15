@@ -1,0 +1,21 @@
+11/14/16 883 meeting
+
+Inspecting the whole dataset
+
+1, get rid of the vehicle_new_cost_amount by inspecting outlier (-1), only 7000+ records found of value -1
+2, policy_zipcode replace it by a number that does not exist in the current zip codes
+3, vehicle_make_description, do we need to remove this column? there’s no outlier
+4, vehicle_symbol, keep it
+5, vehicle_number_of_drivers_assigned, outlier 99;
+6, vehicle_miles_to_work, -1 exists in half of the records, replace -1 by average;
+7, vehicle_days_per_week_driven, 19 records have the value of -1;
+8, vehicle_annual_miles, only 90 of records are NOT unknown, should we discard this field?
+9, vehicle_anti_theft_devices, replace unknown by other value;
+10, vehicle_passive_restraint, replace 81 records with unknown by Y, since we have more Ys;
+11, vehicle_med_pay_limit, fill the -1s with average value;
+12, vehicle_bodily_injury_limit, 17000+ NA data records, should we replace them by average or consider them as another category? There are 8 levels; set 3 levels: 0 - 100, 100 - 300, 300 - 500
+	NOTE: $50,000/$100,000
+	The first dollar amount ($50,000) represents the coverage limit for damages if only one person is injured in an accident.The second dollar amount ($100,000) represents the coverage limit for the total amount of damages if more than one person is injured.
+What about the NA then? 
+
+13, 
