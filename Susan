@@ -18,4 +18,54 @@ Inspecting the whole dataset
 	The first dollar amount ($50,000) represents the coverage limit for damages if only one person is injured in an accident.The second dollar amount ($100,000) represents the coverage limit for the total amount of damages if more than one person is injured.
 What about the NA then? 
 
-13, 
+
+
+11/15/16
+
+
+Cizhen
+
+1, Driver_Total_xxx_xxx_Ages, can be combined and divided by 8 classes, but its related to Vehicle_Youthful_Driver_Indicator
+2, Vehicle_Youthful_Driver_Indicator falls into 2 classes
+3, EEA_Policy_Zip_Code_3, 60 unknown records, what to do with them?
+
+
+
+Shuai
+
+x column: vehicle physical damage limit: 17338/424431 missing, P(claim|missing)=814/17338=0.047=average (suggestion: put them to different levels evenly or predict the missing values)
+y column: vehicle comprehensive coverage indicator: no missing, replace Y/N with 1/0
+z column: vehicle comprehensive coverage limit: missing too many 407486/424431 P(claim|missing)=18088/407486=0.044=average (suggestion: delete this column)
+aa column: vehicle collision coverage indicator: no missing, replace Y/N with 1/0
+ab column: vehicle collision coverage deductible: 165706/424431 missing ,P(claim|missing)=3439/165706=0.021 obviously less than average (suggestion: let missing be a new level or predicthe)
+ac-ao column: good to go, but suggestion: delete al and am column(minimum age& maximum age), they can be classified into age ranges
+
+
+
+Uddipan
+
+Loss Ratio: 18867 non-zero data. 0.044 % of total data.(We have decided to keep all data, for now zero and non-zero data)
+Severity:  12937 non-zero data. .(We have decided to keep all data, for now zero and non-zero data)
+
+Frequency : 18869 non-zero data. .(We have decided to keep all data, for now zero and non-zero data)
+
+Loss_Amount: 12948 non-zero data. .(We have decided to keep all data, for now zero and non-zero data)
+
+Claim Count : 18869 non-zero data. .(We have decided to keep all data, for now ,zero and non-zero data)
+
+Annual Premium: No missing data.
+Sys_New_Business: No missing data.
+Sys_Renewed: No missing data.
+EEA policy year: same data throughout. This attribute can be deleted.
+EEA prior bodily injury limit: 17326 missing data. Highly correlated with Bodily Injury Limit ,one of the columns can be deleted.
+EEA_Full_Coverage_Indicator: No missing data.
+EEA_Packaged_Policy_Indicator: No missing data.
+EEA_Agency_Type: No missing data. 4 classes.
+EEA_Policy _Tenure: 41 illogical/missing data. Can be deleted or replaced by average. No claim count for these data.
+EEA_Policy_Zip_Code_3: 3468 missing data. Same step should be taken as the other zip code attribute in the dataset. These records can be deleted.
+EEA_Multi_Auto_Policies_Indicator: no missing data. (y/n column)
+EEA_Liability_Coverage_Only_Indicator: no missing data. (y/n column)
+Vehicle_Safe_Driver_Discount_Indicator: no missing data. (y/n column)
+Vehicle_Driver_Points: no missing data.
+Vehicle_Youthful_Good_Student_Code: No missing data.
+
