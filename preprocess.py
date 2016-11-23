@@ -9,7 +9,7 @@ import pandas as pd
 
 Data = pd.read_csv('Training_Data_2016/training_data_2016.csv',low_memory = False)
 
-# Drop unneccessary rows #
+# Drop unneccessary columns #
 
 Data = Data.drop('Vehicle_Annual_Miles', 1)
 Data = Data.drop('Vehicle_Comprehensive_Coverage_Limit', 1)
