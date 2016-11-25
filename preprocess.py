@@ -58,6 +58,14 @@ Data = Data.drop('Driver_Total_Adult_Ages_50_64', 1)
 Data = Data.drop('Driver_Total_Senior_Ages_65_69', 1)
 Data = Data.drop('Driver_Total_Upper_Senior_Ages_70_plus', 1)
 
+
+#Categorizing continuous data #
+
+Data['Vehicle_Miles_To_Work']=pd.cut(Data['Vehicle_Miles_To_Work'], bins=[0, 20,40,60,80,100], include_lowest=True, labels=['lowest', 'low', 'mid', 'high', 'highest'])
+
+Data['Annual_Premium'] = pd.cut(Data['Annual_Premium'],9 , labels= ['highest', 'very high', 'moderately high', 'higher', 'medium', 'lower', 'moderately low', 'very low', 'lowest'])
+
+
 # Print unique values in each column #
 
 # for col in Data[1:]:
